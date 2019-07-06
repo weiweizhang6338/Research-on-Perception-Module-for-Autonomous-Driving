@@ -8,4 +8,4 @@
 
 ![](/image/1-1.png "2D和3D目标检测的对比")
 
-<img width=70% height=70% src="/image/1-1.png" align=center/>
+<div align=center><img width=70% height=70% src="/image/1-1.png"/></div>
