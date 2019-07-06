@@ -16,7 +16,7 @@
 
 3D目标检测方法根据输入的数据类型分为基于视觉图像方法，基于激光雷达点云方法，基于多模态信息融合方法。其中，基于视觉图像方法主要研究基于单目图像方法，基于激光雷达点云的方法又可分为三个之类，基于投影、体素和PointNet方法。这三种方法的详细对比见表1-3。
 
-<div align=center><img width=70% height=70% src="/image/1-3.png" alt="3D目标检测方法对比"/></div>
+<div align=center><img width=90% height=90% src="/image/1-3.png" alt="3D目标检测方法对比"/></div>
 
 
 ### 1. 基于视觉图像方法
