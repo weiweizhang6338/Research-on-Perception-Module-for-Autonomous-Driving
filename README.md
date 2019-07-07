@@ -72,3 +72,10 @@ LeNet5 一共有7层，不包括输入层:层C1是卷积层，层S2是池化层�
 
 2012年，Alex Krizhevsky发布了AlexNet，这是一个更深入，更广泛的LeNet版本，在ImageNet竞赛中以超过第二名10.9个百分点的绝对优势一举夺冠，从此深度学习和卷积神经网络名声鹊起，深度学习的研究如雨后春笋般出现，AlexNet的出现可谓是卷积神经网络的王者归来。
 
+<div align=center><img width=90% height=90% src="/image/2-2.png" alt="AlexNet网络架构"/></div>
+
+AlexNet将LeNet扩展为更大的神经网络，可用于学习更复杂的对象和对象层次结构。这项工作的贡献是：
+  * 成功使用ReLU作为CNN的激活函数，成功解决了Sigmoid在网络较深时的梯度弥散问题
+  - 使用Dropout随机忽略一部分神经元，以避免模型过拟合
+  * 全部选用最大池化，避免平均池化的模糊化效果
+  - 使用GPU加速深度卷积网络的训练
