@@ -100,4 +100,4 @@ VGGNet是在2015年发表在ICLR上的一篇文章中提出的，网络深度提
 
 <div align=center><img width=60% height=60% src="/image/2-5.jpg" alt="VGGNet网络架构"/></div>
 
-<div align=center><img width=60% height=60% src="/image/2-5.png" alt="VGGNet网络架构"/></div>
+<div align=center><img width=90% height=90% src="/image/2-5.png" alt="VGGNet网络架构"/></div>
