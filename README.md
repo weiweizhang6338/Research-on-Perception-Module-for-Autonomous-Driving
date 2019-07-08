@@ -74,13 +74,13 @@ LeNet5 一共有7层，不包括输入层(28x28):层C1是卷积层，层S2是池
 
 ### 2. AlexNet(2012)[2]——王者归来
 
-2012年，Alex Krizhevsky发布了AlexNet，这是一个更深入，更广泛的LeNet版本，在ImageNet竞赛中以超过第二名10.9个百分点的绝对优势一举夺冠，从此深度学习和卷积神经网络名声鹊起，深度学习的研究如雨后春笋般出现，AlexNet的出现可谓是卷积神经网络的王者归来。
+AlexNet是由2012年发表在NIPS上的一篇文章中提出的，由神经网络的三巨头(Hinton, Lecun, Bengio)之一Hinton的学生Alex提出，这也是深度CNN网络首次应用于图像分类，该方案获得了ILSVRC-2012的Classification任务的冠军，在top-5错误率上达到了15.3%，远超第二名的26.2%。
 
 <div align=center><img width=90% height=90% src="/image/2-2.png" alt="AlexNet网络架构"/></div>
 
 <div align=center><img width=70% height=70% src="/image/2-3.png" alt="AlexNet网络架构"/></div>
 
-AlexNet输入尺寸为227x227x3，有5个卷积层，3个池化层，2个全连接层和1个输出层，输出1000个类别的概率。
+AlexNet网络一共包含8层，包括5个卷积层和3个全连接层，具体来说，输入尺寸为227x227x3，有5个卷积层，3个池化层，2个全连接层和1个输出层，输出1000个类别的概率。
 
 AlexNet将LeNet扩展为更大的神经网络，可用于学习更复杂的对象和对象层次结构。AlexNet的成功主要归功于以下三个方面的原因：
   * 大量数据，Deep Learning领域应该感谢李飞飞团队贡献出来庞大标注数据集ImageNet；
