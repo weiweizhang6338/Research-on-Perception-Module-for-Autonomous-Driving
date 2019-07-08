@@ -82,3 +82,7 @@ AlexNet将LeNet扩展为更大的神经网络，可用于学习更复杂的对�
   * 大量数据，Deep Learning领域应该感谢李飞飞团队贡献出来庞大标注数据集ImageNet；
   - GPU，这种高度并行的计算神器确实助了洪荒之力，没有神器在手，Alex估计不敢搞太复杂的模型；
   * 算法的改进，包括网络变深、数据增强、ReLU、Dropout等。
+
+### 3. VGGNet(2014)[3]——越走越深
+
+VGGNet是由牛津大学VGG(Visual Geometry Group)提出，是2014年ImageNet竞赛定位任务的第一名和分类任务的第二名的中的基础网络。VGG可以看成是加深版本的AlexNet，都是conv layer + FC layer，在当时看来这是一个非常深的网络了，因为层数高达十多层。
