@@ -76,6 +76,8 @@ LeNet5 一共有7层，不包括输入层(28x28):层C1是卷积层，层S2是池
 
 <div align=center><img width=90% height=90% src="/image/2-2.png" alt="AlexNet网络架构"/></div>
 
+<div align=center><img width=70% height=70% src="/image/2-3.png" alt="AlexNet网络架构"/></div>
+
 AlexNet输入尺寸为227x227x3，有5个卷积层，3个池化层，2个全连接层和1个输出层，输出1000个类别的概率。
 
 AlexNet将LeNet扩展为更大的神经网络，可用于学习更复杂的对象和对象层次结构。AlexNet的成功主要归功于以下三个方面的原因：
