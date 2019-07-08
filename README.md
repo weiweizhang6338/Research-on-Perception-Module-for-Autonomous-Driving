@@ -99,3 +99,5 @@ AlexNet将LeNet扩展为更大的神经网络，可用于学习更复杂的对�
 VGGNet是在2015年发表在ICLR上的一篇文章中提出的，网络深度提高到了16至19层，在ILSVRC-2014中，基于该网络的方案获得了Localisation任务的第一名和Classification任务的第二名(同年Classification任务第一名为Inception v1方案)。VGGNet出现前，网络最深也只在10层以内，此时的大多数工作是一方面是使用更小的卷积核和卷积步长，另一方面是使用更大的图像和多尺度对图像进行训练，本文中作者则从另一个角度研究CNN网络的特性–Depth。
 
 <div align=center><img width=60% height=60% src="/image/2-5.jpg" alt="VGGNet网络架构"/></div>
+
+<div align=center><img width=60% height=60% src="/image/2-5.png" alt="VGGNet网络架构"/></div>
