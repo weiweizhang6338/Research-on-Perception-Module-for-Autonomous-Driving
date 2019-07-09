@@ -108,8 +108,8 @@ VGGNet是在2015年发表在ICLR上的一篇文章中提出的，网络深度提
 
 <div align=center><img width=60% height=60% src="/image/2-5.jpg" alt="VGGNet网络架构"/></div>
 
-上述表格描述的是VGGNet的网络结构以及诞生过程。为了解决初始化（权重初始化）等问题，VGG采用的是一种Pre-Training的方式，这种方式在经典的神经网络中经常见得到，就是先训练一部分小网络，然后再确保这部分网络稳定之后，再在这基础上逐渐加深。上述表格从左到右体现的就是这个过程，并且当网络处于D阶段的时候，效果是最优的，因此D阶段的网络也就是VGG-16了！E阶段得到的网络就是VGG-19了！VGG-16的16指的是conv+fc的总层数是16，是不包括max pool的层数。下图就是VGG-16的网络结构。
+上述表格描述的是VGGNet的网络结构以及诞生过程。为了解决初始化（权重初始化）等问题，VGG采用的是一种Pre-Training的方式，这种方式在经典的神经网络中经常见得到，就是先训练一部分小网络，然后再确保这部分网络稳定之后，再在这基础上逐渐加深。上述表格从左到右体现的就是这个过程，并且当网络处于D阶段的时候，效果是最优的，因此D阶段的网络也就是VGG-16了！E阶段得到的网络就是VGG-19，它也是现在用的比较多的一个预训练模型，在当时算是比较深的网络！VGG-16的16指的是conv+fc的总层数是16，是不包括max pool的层数。下图就是VGG-16的网络结构。
 
-<div align=center><img width=90% height=90% src="/image/2-5.png" alt="VGGNet网络架构"/></div>
+<div align=center><img width=60% height=60% src="/image/2-5.png" alt="VGGNet网络架构"/></div>
 
-
+由上图看出，VGG-16的结构非常整洁，深度较AlexNet深得多，里面包含多个conv->conv->max_pool这类的结构,VGG的**卷积层都是same的卷积**，即卷积过后的输出图像的尺寸与输入是一致的，它的下采样完全是由max pooling来实现。
