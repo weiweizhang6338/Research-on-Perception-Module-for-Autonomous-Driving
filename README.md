@@ -74,7 +74,7 @@ LeNet5 一共有7层，不包括输入层(28x28):层C1是卷积层，层S2是池
 
 如今各大深度学习框架中所使用的LeNet5和原始的有些许不同，比如把激活函数改为了现在很常用的ReLu，把平均池化改为最大池化；LeNet5跟现有的conv->pool->ReLU的套路不同，它使用的方式是conv1->pool->conv2->pool2再接全连接层，但是不变的是，卷积层后紧接池化层的模式依旧不变。具体如下图所示：
 
-<div align=center><img width=90% height=90% src="/image/2-6.png" alt="LeNet5新网络架构"/></div>
+<div align=center><img width=60% height=60% src="/image/2-6.png" alt="LeNet5新网络架构"/></div>
 
 ### 2. AlexNet(2012)[2]——王者归来
 
