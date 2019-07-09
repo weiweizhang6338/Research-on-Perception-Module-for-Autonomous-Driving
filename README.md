@@ -101,3 +101,5 @@ VGGNet是在2015年发表在ICLR上的一篇文章中提出的，网络深度提
 <div align=center><img width=60% height=60% src="/image/2-5.jpg" alt="VGGNet网络架构"/></div>
 
 <div align=center><img width=90% height=90% src="/image/2-5.png" alt="VGGNet网络架构"/></div>
+
+VGGNet的网络结构并没有太多可以分析的地方，作者设计网络的思路也很简单，全部使用3*3大小的卷积核，并在不同的网络结构中加入1*1的卷积核进行对比，剩下的工作就是不断增加网络深度，以分析不同深度对分类精度的影响，如下图所示，VGGNet最深的结构达到了19层，VGG-19 也是现在用的比较多的一个预训练模型，在当时算是比较深的网络，同时也得出结论:较小的卷积核和较深的网络结构可以提高模型精度。
