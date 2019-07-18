@@ -97,7 +97,7 @@ AlexNet将LeNet扩展为更大的神经网络，可用于学习更复杂的对�
   
 对于AlexNet网络需要注意以下几点：
   * ReLU Nonlinearity：作者首次使用ReLU激活函数代替传统的S型激活函数(tanh, sigmoid)，实验表明，ReLU激活函数可以避免因为神经元进入饱和区域而导致的神经元死亡，并且由于在正半轴梯度始终为1，可以减弱梯度消失问题，已**成为现在深度神经网络的标配**；
-  - Local Response Normalization：作者提出了LRN局部响应归一化操作，以提高网络的泛化性能，公式如下，简单来说，该操作就是对一个feature map沿channel方向的归一化操作，**在目前的深度神经网络中，常常被更好用的Batch Normalization代替**；
+  - Local Response Normalization：作者提出了LRN局部响应归一化操作，以提高网络的泛化性能，简单来说，该操作就是对一个feature map沿channel方向的归一化操作，**在目前的深度神经网络中，常常被更好用的Batch Normalization代替**；
   * Overlapping Pooling：对传统的Pooling方法，通常是步长等于池化核大小，即对于同一池化核，池化过程中没有交差重叠。作者这里提出了Overlapping Pooling方法，步长小于池化核，使一次池化过程产生一定的重叠，作者通过实验觉得这对克服过拟合有一定的作用，不过**目前这种操作使用的较少**。
   - Data Augmentation：在Training阶段，作者主要使用了两种数据增强的方法，一种是对图像进行图像翻转、水平镜像和随机裁剪以增加训练数据，另一种是对图像像素使用PCA方法；**第一种方法好像目前用的比较多，第二种较少**；在Testing阶段，作者从一幅图像中裁剪出10个patches进行评估(四个角+中心，水平翻转后重复)，最终的结果是10个patches求均值；
   * Dropout：作者提出了Dropout方法(Dropout方法是Hinton于2012年在Improving neural Networks by preventing co-adaptation of feature detectors这篇文章中提出的，Alex是共同作者)，该方法来源于多模型联合的启发。作者提出，在训练时，以50%的概率将隐含层的神经元输出置零，每一次操作就相当于一个新的模型，并且该操作能够迫使网络学习更加鲁棒的特征。在AlexNet中，作者在前两层全连接层中使用了Dropout操作，**目前该操作已被更好用的Batch Normalization代替**。
