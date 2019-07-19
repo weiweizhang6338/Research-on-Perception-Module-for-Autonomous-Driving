@@ -140,8 +140,12 @@ NIN(Network In Network)是NUS(National University of Singapore)于2014年发表�
   
 <div align=center><img width=70% height=70% src="/image/2-7.png" alt="Mlpconv层"/></div>
 
-在多通道的Feature Map上进行该操作，就相当于是将各通道的信息进行混合，此时每个全连接层就相当于对feature map进行1x1的卷积操作。作者把这样的conv+1x1conv+1x1conv操作封装成一个子块，由这样的子块堆叠而成的网络就是NIN网络，如下图所示：
+在多通道的Feature Map上进行该操作，就相当于是将各通道的信息进行混合，此时每个全连接层就相当于对Feature Map进行1x1的卷积操作。作者把这样的conv+1x1conv+1x1conv操作封装成一个子块，由这样的子块堆叠而成的网络就是NIN网络，如下图所示：
 
 <div align=center><img width=50% height=50% src="/image/2-8.png" alt="Mlpconv层和NIN网络"/></div>
 
-  * **Global Average Pooling(全局平均池化层)**: 使用平均池化代替全连接层，很大程度上减少参数空间，便于加深网络和训练，有效防止过拟合。
+从目前的应用来看，1x1 Convolution效果确实非常好，此后的GoogLeNet和ResNet都借鉴了这种操作。 1x1 Convolution好用的原因应该有以下两点：(1)融合Feature Map各通道的信息，提高了网络的抽象能力，进而提高了网络的泛化性能；(2)可以实现对Feature Map层的压缩，以降低参数数量，进而可以提高网络层数；
+
+  * **Global Average Pooling(全局平均池化层)**: 使用平均池化代替全连接层，很大程度上减少参数空间，便于加深网络和训练，有效防止过拟合。对最后一个卷积层的输出，作者提出了一种全局均值池化的方法，各通道的值直接求均值后，以该值作为softmax层的输入以进行分类，具体如下图所示：
+
+<div align=center><img width=60% height=60% src="/image/2-9.jpg" alt="GVP层"/></div>
