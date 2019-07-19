@@ -127,7 +127,7 @@ VGGNet的闪光点是**卷积层使用更小的滤波器尺寸和间隔**。与A
   
   但 VGGNet 唯一存在的**不足是VGG耗费更多计算资源**，并且使用了更多的参数（这里不是3x3卷积的锅），导致更多的内存占用（140M）。其中绝大多数的参数都是来自于第一个全连接层，并且VGGNet有3个全连接层！巨大的参数空间导致训练一个VGG模型通常要花费更长的时间，所幸有公开的pretrained model让我们很方便的使用。
 
-### 4. NiN(2013)[4]——增强卷积模块功能
+### 4. NIN(2013)[4]——增强卷积模块功能
 
 NIN(Network In Network)是NUS(National University of Singapore)于2014年发表在ICLR上的一篇文章中提出的，作者首先分析了传统的CNN网络的一些问题，并针对这些问题，提出了自己的改进方法，并将网络结构命名为NIN。在NIN的基础上，Google于2014年提出了GoogLeNet（Inception V1），并随后改进出Inception V3和V4。
 
@@ -151,3 +151,12 @@ NIN(Network In Network)是NUS(National University of Singapore)于2014年发表�
 <div align=center><img width=60% height=60% src="/image/2-9.jpg" alt="GVP层"/></div>
 
 **Global Average Pooling**的优点如下：(1)不引入新的参数，避免了全连接层带来的参数数量增加和过拟合；(2)增加网络的可解释性，输出的每个通道对应于一个类别；(3)通过实验发现，全局均值池化还有正则化的作用。
+
+### 5. GoogLeNet and Inception(2014)[5]——大浪推手
+
+Inception v1模型是由2015年发表在CVPR上的Going Deeper with Convolutions[5]文章中提出的，文章中首次提出了Inception结构，并把由该结构组成的网络称为GoogLeNet，该网络获得了ILSVRC-2014的Classification任务的冠军。GoogLeNet达到了22层，在当时应该是最深的网络，由于精心设计的网络结构，其参数数量只有AlexNet的8层网络的1/12，约为500w，并且要比AlexNet更为精确。
+
+<div align=center><img width=80% height=80% src="/image/2-9.png" alt="GoogLeNet网络架构"/></div>
+
+作者提出了Inception module结构，它借鉴了NIN[4]的一些思想，网络结构相比于传统的CNN结构有很大改变。网络中大量使用1x1的卷积核，NIN中使用1x1卷积核的目的主要是提高网络的非线性能力，而这里作者用它的主要目的是进行降维，**将参数空间进行压缩，去除掉无用的稀疏数据，使参数空间更为稠密**，这样可减少参数数量，进而可增加网络的深度和宽度。
+
