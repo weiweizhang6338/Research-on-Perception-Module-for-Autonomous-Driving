@@ -149,3 +149,5 @@ NIN(Network In Network)是NUS(National University of Singapore)于2014年发表�
   * **Global Average Pooling(全局平均池化层)**: 使用平均池化代替全连接层，很大程度上减少参数空间，便于加深网络和训练，有效防止过拟合。对最后一个卷积层的输出，作者提出了一种全局均值池化的方法，各通道的值直接求均值后，以该值作为softmax层的输入以进行分类，具体如下图所示：
 
 <div align=center><img width=60% height=60% src="/image/2-9.jpg" alt="GVP层"/></div>
+
+**Global Average Pooling**的优点如下：(1)不引入新的参数，避免了全连接层带来的参数数量增加和过拟合；(2)增加网络的可解释性，输出的每个通道对应于一个类别；(3)通过实验发现，全局均值池化还有正则化的作用。
