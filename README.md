@@ -136,5 +136,6 @@ NIN(Network In Network)是NUS(National University of Singapore)于2014年发表�
   - **全连接层参数多，容易过拟合**：对传统的CNN网络分类器结构通常是：卷积层作为特征提取器，最后一层卷积输出的结果展开为向量，连接至全连接层进行分类，全连接层的输出再输入到softmax层作为最终的分类结果。作者认为这样的操作可解释性不强，并且全连接层容易引起网络的过拟合。
   
 针对以上两个方面的问题，作者提出NIN结构，具有以下两个方面的创新点：
-  * **MLP Convolution Layers（多层感知卷积层）**：使用 Conv+MLP 代替传统卷积层，增强网络提取抽象特征和泛化的能力。
-  - **Global Average Pooling（全局平均池化层）**：使用平均池化代替全连接层，很大程度上减少参数空间，便于加深网络和训练，有效防止过拟合。
+  * **MLP Convolution Layers(多层感知卷积层)**: 使用 Conv+MLP 代替传统卷积层，增强网络提取抽象特征和泛化的能力。由于传统的多层感知机网络具有较强的非线性抽象能力，所以作者考虑将经过卷积操作得到的Feature Map输入到一个MLP网络中，以提高其非线性抽象能力。如下图所示。
+<div align=center><img width=80% height=80% src="/image/2-7.png" alt="Mlpcov层"/></div>
+  - **Global Average Pooling(全局平均池化层)**: 使用平均池化代替全连接层，很大程度上减少参数空间，便于加深网络和训练，有效防止过拟合。
