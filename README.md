@@ -168,3 +168,7 @@ Inception v1模型是由2015年发表在CVPR上的Going Deeper with Convolutions
 
 <div align=center><img width=65% height=65% src="/image/2-10-2.png" alt="Inception module原始版本"/></div>
 
+GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练参数的层的情况下，网络有22层，网络结构可参考论文中的图，具体每层的参数如下表：
+
+<div align=center><img width=70% height=70% src="/image/2-10-3.png" alt="GoogLeNet网络结构和参数表"/></div>
+
