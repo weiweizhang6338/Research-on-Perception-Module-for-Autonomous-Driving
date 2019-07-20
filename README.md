@@ -207,3 +207,7 @@ ResNet v1是由Kaiming He于2016年发表在CVPR上的文章Deep Residual Learni
 ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-layer。他们都是由上述的残差模块堆叠在一起实现的。具体的网络配置如下表所示：
 
 <div align=center><img width=80% height=80% src="/image/2-11-3.png" alt="ResNet不同层数时的网络配置"/></div>
+
+### 7. DenseNet(2015)[7]——既往开来
+
+DenseNet于2017年CVPR上的一篇论文中提出，该网络是对ResNet等跳层连接的网络的进一步发展，作者提出了一种稠密残差连接的模块，并据此构建出较深的网络结构，取得了不错的效果。如下图所示，为一个稠密残差连接的模块的示意图，在图中，X_0为输入，其后各层为卷积后的特征图：
