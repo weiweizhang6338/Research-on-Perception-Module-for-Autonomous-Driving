@@ -163,3 +163,8 @@ Inception v1模型是由2015年发表在CVPR上的Going Deeper with Convolutions
 根据感受野的概念，较高层的feature map中一个像素点对应于原图的一个区域的信息，所以作者考虑分别使用1x1, 3x3, 5x5的卷积核分别对前一层的feature map进行卷积，以覆盖图像中不同大小的物体，通过padding操作可使输出的feature map的shape相同，然后在channel方向联合这些feature map以作为当前层的输出。不同大小的卷积核相当于对原图像进行多尺度的处理，后一层在处理时，相当于同时处理了不同尺度图像的信息。在较高层时特征更为抽象，需要用较大的卷积核来融合不同的特征，所以在较高层时，3x3, 5x5卷积核的数量要多一点。具体的Inception结构如下图所示：
 
 <div align=center><img width=60% height=60% src="/image/2-10-1.png" alt="Inception module原始版本"/></div>
+
+但是这里有一个问题：在较高层时，channel数目较多，5x5卷积操作所带来的计算量非常大，特别是叠加pooling操作后(pooling操作channel数量不变)，channel数量会变得非常多。这里作者提出了第二个版本的Inception结构，引入了1x1的卷积核进行降维。 使用1x1卷积核进行降维源于embeddings的成功：即使是低维嵌入空间也可能包含大量的大块图像的信息。这里又有一个问题：低维嵌入空间所表达的特征是稠密的、经过压缩过的，一般难以处理，应该要保持特征表达的稀疏性以便于处理。所以作者又提出的如下的结构，在对输入的feature map进行卷积操作前，先使用1x1的卷积对特征进行压缩，之后的卷积操作相当于又将稠密的特征稀疏化。而在pooling操作时，则是后进行1x1卷积操作，以减少channel数量。
+
+<div align=center><img width=65% height=65% src="/image/2-10-2.png" alt="Inception module原始版本"/></div>
+
