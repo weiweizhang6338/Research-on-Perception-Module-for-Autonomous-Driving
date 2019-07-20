@@ -202,4 +202,4 @@ ResNet v1是由Kaiming He于2016年发表在CVPR上的文章Deep Residual Learni
   - 对该模块，经过残差连接相加后，才经过最后的非线性激活函数；
   * 论文中单个模块中包含的卷积层的个数为2-3层，如下图所示，论文中较浅层的网络应用左侧模块，较深层的网络应用右侧模块，右侧模块前后两个1x1的卷积层分别达到降低和提高维度的作用，可用于构建较深的网络。
   
-<div align=center><img width=50% height=50% src="/image/2-11-2.png" alt="两层和三层残差学习模块"/></div>
+<div align=center><img width=80% height=80% src="/image/2-11-2.png" alt="两层和三层残差学习模块"/></div>
