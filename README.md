@@ -183,3 +183,9 @@ GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练�
   * 网络在inference时的计算量约为1.5 billion multiply-adds；
   
 由于网络层数较深，所以会带来梯度消失的问题。为了应对该问题，在训练阶段，作者为网络添加了辅助分类器，即使用网络中间某层的feature map进行分类，计算得到的loss以一定权重添加到总的loss中用于训练，在测试阶段则丢弃这些辅助分类器。GoogLeNet网络分别在inception(4a)和inception(4d)的顶部添加了辅助分类器，其loss按0.3的权重添加到总的loss中。 辅助分类器的结构参考论文。
+
+### 6. ResNet(2015)[6]——里程碑式创新
+
+ResNet v1是由Kaiming He于2016年发表在CVPR上的文章Deep Residual Learning中提出的，残差学习的方法有效地解决了随着网络深度增加而造成的性能退化的问题，在这篇文章中，最深的网络深度达到了152层。以该结构为基础的所构建的网络，赢得了ILSVRC-2015的Classilfication/Localization/Detection任务的冠军，同时赢得了COCO-2015的Detection/Segmentation任务的冠军，并且在COCO目标检测数据集上，获得了相对28%的提升。
+
+目前的研究已经表明，提高网络深度可以提高网络性能，但网络较深则会带来**梯度消失**和**梯度爆炸**的问题，目前该问题可以通过**Normalized Initialization**和**Batch Normalization**很好地解决。但通过实验发现，不断增加网络深度还会带来**网络退化**的问题，较深网络的训练和测试误差都比较浅层网络大，造成这一现象的不是过拟合，而是**网络退化**。作者对这一问题进行了分析，提出了残差网络的概念。
