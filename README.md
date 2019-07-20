@@ -203,3 +203,7 @@ ResNet v1是由Kaiming He于2016年发表在CVPR上的文章Deep Residual Learni
   * 论文中单个模块中包含的卷积层的个数为2-3层，如下图所示，论文中较浅层的网络应用左侧模块，较深层的网络应用右侧模块，右侧模块前后两个1x1的卷积层分别达到降低和提高维度的作用，可用于构建较深的网络。
   
 <div align=center><img width=80% height=80% src="/image/2-11-2.png" alt="两层和三层残差学习模块"/></div>
+
+ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-layer。他们都是由上述的残差模块堆叠在一起实现的。具体的网络配置如下表所示：
+
+<div align=center><img width=80% height=80% src="/image/2-11-3.png" alt="ResNet不同层数时的网络配置"/></div>
