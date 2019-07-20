@@ -172,3 +172,14 @@ GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练�
 
 <div align=center><img width=70% height=70% src="/image/2-10-3.png" alt="GoogLeNet网络结构和参数表"/></div>
 
+表格中需要注意以下几点：
+
+  * 表格中的#3x3 reduce和#5x5 reduce一栏表示在3x3和5x5卷积前所用的1x1卷积核的数量；
+  - 表格中的inception(-a/b...)是对feature map大小相同的情况下对使用的Inception模块的编号；
+  * Inception结构中的max pooling操作使用的是3x3的步长为1的池化，而用于Inception之间的则是3x3的步长为2的池化，以缩小feature map的体积；
+  - 网络中使用average pooling代替全连接层用于分类，这给网络性能带来了一定的提升；注意这里的average pooling不同于全局均值池化，此处average pooling后，又对结果进行了线性组合(FC)后才形成最终的分类结果；
+  * 虽然没有使用全连接层，但是网络中依然使用了dropout层，作者认为这很有必要；
+  - 网络中也使用了LRN；
+  * 网络在inference时的计算量约为1.5 billion multiply-adds；
+  
+由于网络层数较深，所以会带来梯度消失的问题。为了应对该问题，在训练阶段，作者为网络添加了辅助分类器，即使用网络中间某层的feature map进行分类，计算得到的loss以一定权重添加到总的loss中用于训练，在测试阶段则丢弃这些辅助分类器。GoogLeNet网络分别在inception(4a)和inception(4d)的顶部添加了辅助分类器，其loss按0.3的权重添加到总的loss中。 辅助分类器的结构参考论文。
