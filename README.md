@@ -1,4 +1,4 @@
-# Research on Perception Module in Autonomous Driving
+# Research on Perception Module for Autonomous Driving
 
 本人刚刚从事无人驾驶中感知模块的研究，目前主要研究采用多传感器融合进行3D目标检测，现将研究过程中研读的论文采用中英文对照翻译的形式整理在此仓库中。
 
