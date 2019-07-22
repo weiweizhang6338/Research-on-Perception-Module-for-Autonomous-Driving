@@ -239,3 +239,19 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
   <div align=center><img width=75% height=75% src="/image/2-12-5.png" alt="DenseNet-B"/></div>
   
   * **DenseNet-C**:作者同样在Transition Layer中进行改进，在该层中降低特征图channel的数量，若前一层Dense Block中的channel为m，则可以设置Dense Block间的转移层输出的channel个数为theta x m，0<theta<=1，这样可通过theta参数控制网络规模。论文中将使用该方法并且theta=0.5的DenseNet记为**DenseNet-C**，将综合了DenseNet-B和DenseNet-C的网络称为**DenseNet-BC**。
+
+### Reference
+
+[1] Lécun Y, Bottou L, Bengio Y, et al. Gradient-based learning applied to document recognition[J]. Proceedings of the IEEE, 1998, 86(11):2278-2324.
+
+[2] Krizhevsky A, Sutskever I, Hinton G E. Imagenet classification with deep convolutional neural networks[C]//Advances in Neural Information Processing Systems(NIPS). 2012: 1097-1105.
+
+[3] Simonyan K, Zisserman A. Very deep convolutional networks for large-scale image recognition[J]. arXiv preprint arXiv:1409.1556, 2014.
+
+[4] Lin M, Chen Q, Yan S. Network in network[J]. arXiv preprint arXiv:1312.4400, 2013.
+
+[5] Szegedy C, Liu W, Jia Y, et al. Going deeper with convolutions[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition(CVPR). 2015: 1-9.
+
+[6] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition(CVPR). 2016: 770-778.
+
+[7] Huang G, Liu Z, Van Der Maaten L, et al. Densely connected convolutional networks[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition(CVPR). 2017: 4700-4708.
