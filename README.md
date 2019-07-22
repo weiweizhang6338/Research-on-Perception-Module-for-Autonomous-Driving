@@ -229,7 +229,9 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
 论文中作者对DenseNet网络进行了优化，共经历以下三个阶段:
 
   * **Basic DenseNet**:前文提到每个Dense Block模块中的各个卷积层之间使用一种预激活的结构，即BN-RelU-Conv，在最初的版本中，其结构如下图所示：
-<div align=center><img width=50% height=50% src="/image/2-12-4.png" alt="Basic DenseNet"/></div>
-  - **DenseNet-B**:作者对BN-ReLU-Conv结构进行改进，即输入的特征图首先经过Bottleneck Layer(Conv 1x1)降低特征图channel数量，在实验中降维4k，再经过Conv 3x3降维k，经过改善的预激活结构为BN-ReLU-Conv(1x1)-BN-ReLU-Conv(3x3)，如下图所示，具有Bottleneck Layer的DenseNet被作者称为**DenseNet-B**；
-<div align=center><img width=75% height=75% src="/image/2-12-5.png" alt="DenseNet-B"/></div>
+  <div align=center><img width=50% height=50% src="/image/2-12-4.png" alt="Basic DenseNet"/></div>
+  
+  * **DenseNet-B**:作者对BN-ReLU-Conv结构进行改进，即输入的特征图首先经过Bottleneck Layer(Conv 1x1)降低特征图channel数量，在实验中降维4k，再经过Conv 3x3降维k，经过改善的预激活结构为BN-ReLU-Conv(1x1)-BN-ReLU-Conv(3x3)，如下图所示，具有Bottleneck Layer的DenseNet被作者称为**DenseNet-B**；
+  <div align=center><img width=75% height=75% src="/image/2-12-5.png" alt="DenseNet-B"/></div>
+  
   * **DenseNet-C**:作者同样在Transition Layer中进行改进，在该层中降低特征图channel的数量，若前一层Dense Block中的channel为m，则可以设置Dense Block间的转移层输出的channel个数为theta x m，0<theta<=1，这样可通过theta参数控制网络规模。论文中将使用该方法并且theta=0.5的DenseNet记为**DenseNet-C**，将综合了DenseNet-B和DenseNet-C的网络称为DenseNet-BC。
