@@ -70,7 +70,7 @@ LeNet 诞生于 1994 年，是最早的卷积神经网络之一，并且推动�
 
 <div align=center><img width=90% height=90% src="/image/2-1.png" alt="LeNet5网络架构"/></div>
 
-<div align=center><img width=90% height=90% src="/image/2-4.png" alt="LeNet5网络架构"/></div>
+<div align=center><img width=100% height=100% src="/image/2-4.png" alt="LeNet5网络架构"/></div>
 
 LeNet5 一共有7层，不包括输入层(32x32):层C1是卷积层，层S2是池化层，层C3是卷积层，层S4是池化层，层C5是卷积层，层F6是全连接层，最后是输出层(10个类别)。LeNet的网络结构虽然简单，但是五脏俱全，卷积层、池化层、全连接层，这些都是现代CNN网络的基本组件。
 
