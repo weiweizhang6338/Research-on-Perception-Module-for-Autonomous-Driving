@@ -2,9 +2,28 @@
 
 本人刚刚从事无人驾驶中感知模块的研究，目前主要研究采用多传感器融合进行3D目标检测，现将研究过程中研读的论文采用中英文对照翻译的形式整理在此仓库中。
 
-## 3D Object Detection[1]
+****
+## 目录
+* [3D Object Detection](#3d-object-detection)
+  * [1 基于视觉图像方法](#1-基于视觉图像方法)
+  * [2 基于激光雷达点云方法](#2-基于激光雷达点云方法)
+  * [3 基于多模态信息融合方法](#3-基于多模态信息融合方法)
+  * [4 Reference](#4-reference)
+* [CNN](#cnn)
+  * [1 LeNet5(1998)——开山之作](#1-lenet5)
+  * [2 AlexNet(2012)——王者归来](#2-alexnet)
+  * [3 VGGNet(2014)——越走越深](#3-vggnet)
+  * [4 NIN(2013)——增强卷积模块功能](#4-nin)
+  * [5 GoogLeNet and Inception(2014)——大浪推手](#5-googlenet)
+  * [6 ResNet(2015)——里程碑式创新](#6-resnet)
+  * [7 DenseNet(2017)——既往开来](#7-densenet)
+  * [8 Reference](#8-reference)
+* [2D Object Detection](#2d-object-detection)
 
-自动驾驶汽车(Autonomous Vehicle, AV)需要准确感知其周围环境才能可靠运行，物体检测是这种感知系统的基本功能。自动驾驶中2D目标检测方法的性能已经得到很大的提高，在KITTI物体检测基准上实现了超过90%的平均精度(Average Precision, AP)。3D目标检测相比于2D目标检测仍然存在很大的性能差距，并且3D目标检测任务对于其它自动驾驶任务至关重要，如路径规划、碰撞避免，因此有必要对3D目标检测方法进行进一步的研究。表1-1显示了2D和3D目标检测的对比：
+****
+## 3D Object Detection
+
+自动驾驶汽车(Autonomous Vehicle, AV)需要准确感知其周围环境才能可靠运行，物体检测是这种感知系统的基本功能[1]。自动驾驶中2D目标检测方法的性能已经得到很大的提高，在KITTI物体检测基准上实现了超过90%的平均精度(Average Precision, AP)。3D目标检测相比于2D目标检测仍然存在很大的性能差距，并且3D目标检测任务对于其它自动驾驶任务至关重要，如路径规划、碰撞避免，因此有必要对3D目标检测方法进行进一步的研究。表1-1显示了2D和3D目标检测的对比：
 
 <div align=center><img width=70% height=70% src="/image/1-1.png" alt="2D和3D目标检测的对比"/></div>
 
@@ -19,16 +38,16 @@
 <div align=center><img width=90% height=90% src="/image/1-3.png" alt="3D目标检测方法对比"/></div>
 
 
-### 1. 基于视觉图像方法
+### 1 基于视觉图像方法
 
 <div align=center><img width=80% height=80% src="/image/1-4.png" alt="基于单目视觉方法总结"/></div>
 
-### 2. 基于激光雷达点云方法
+### 2 基于激光雷达点云方法
 
 
-### 3. 基于多模态信息融合方法
+### 3 基于多模态信息融合方法
 
-### Reference
+### 4 Reference
 
 * 综述文章: [1]
 - 基于视觉图像方法: [2] [3] [4] [5] [6] [7] [8]
@@ -64,9 +83,9 @@
 
 <div align=center><img width=90% height=90% src="/image/2-13.png" alt="经典CNN网络贡献和发展空间"/></div>
 
-### 1. LeNet5(1998)[1]——开山之作
+### 1 LeNet5
 
-LeNet 诞生于 1994 年，是最早的卷积神经网络之一，并且推动了深度学习领域的发展。自从 1988 年开始，在许多次成功的迭代后，这项由 Yann LeCun 完成的开拓性成果被命名为 LeNet5。LeNet5 的架构基于这样的观点：（尤其是）图像的特征分布在整张图像上，以及带有可学习参数的卷积是一种用少量参数在多个位置上提取相似特征的有效方式。在那时候，没有 GPU 帮助训练，甚至 CPU 的速度也很慢。因此，能够保存参数以及计算过程是一个关键进展。这和将每个像素用作一个大型多层神经网络的单独输入相反。LeNet5 阐述了那些像素不应该被使用在第一层，因为图像具有很强的空间相关性，而使用图像中独立的像素作为不同的输入特征则利用不到这些相关性。
+LeNet[1]诞生于 1994 年，是最早的卷积神经网络之一，并且推动了深度学习领域的发展。自从 1988 年开始，在许多次成功的迭代后，这项由 Yann LeCun 完成的开拓性成果被命名为 LeNet5。LeNet5 的架构基于这样的观点：（尤其是）图像的特征分布在整张图像上，以及带有可学习参数的卷积是一种用少量参数在多个位置上提取相似特征的有效方式。在那时候，没有 GPU 帮助训练，甚至 CPU 的速度也很慢。因此，能够保存参数以及计算过程是一个关键进展。这和将每个像素用作一个大型多层神经网络的单独输入相反。LeNet5 阐述了那些像素不应该被使用在第一层，因为图像具有很强的空间相关性，而使用图像中独立的像素作为不同的输入特征则利用不到这些相关性。
 
 <div align=center><img width=90% height=90% src="/image/2-1.png" alt="LeNet5网络架构"/></div>
 
@@ -80,9 +99,9 @@ LeNet5 一共有7层，不包括输入层(32x32):层C1是卷积层，层S2是池
 
 <div align=center><img width=40% height=40% src="/image/2-6.png" alt="LeNet5新网络架构"/></div>
 
-### 2. AlexNet(2012)[2]——王者归来
+### 2 AlexNet
 
-AlexNet是由2012年发表在NIPS上的一篇文章中提出的，由神经网络的三巨头(Hinton, Lecun, Bengio)之一Hinton的学生Alex提出，这也是深度CNN网络首次应用于图像分类，该方案获得了ILSVRC-2012的Classification任务的冠军，在top-5错误率上达到了15.3%，远超第二名的26.2%。
+AlexNet[2]是由2012年发表在NIPS上的一篇文章中提出的，由神经网络的三巨头(Hinton, Lecun, Bengio)之一Hinton的学生Alex提出，这也是深度CNN网络首次应用于图像分类，该方案获得了ILSVRC-2012的Classification任务的冠军，在top-5错误率上达到了15.3%，远超第二名的26.2%。
 
 <div align=center><img width=90% height=90% src="/image/2-2.png" alt="AlexNet网络架构"/></div>
 
@@ -106,9 +125,9 @@ AlexNet将LeNet扩展为更大的神经网络，可用于学习更复杂的对�
   - Data Augmentation：在Training阶段，作者主要使用了两种数据增强的方法，一种是对图像进行图像翻转、水平镜像和随机裁剪以增加训练数据，另一种是对图像像素使用PCA方法；**第一种方法好像目前用的比较多，第二种较少**；在Testing阶段，作者从一幅图像中裁剪出10个patches进行评估(四个角+中心，水平翻转后重复)，最终的结果是10个patches求均值；
   * Dropout：作者提出了Dropout方法(Dropout方法是Hinton于2012年在Improving neural Networks by preventing co-adaptation of feature detectors这篇文章中提出的，Alex是共同作者)，该方法来源于多模型联合的启发。作者提出，在训练时，以50%的概率将隐含层的神经元输出置零，每一次操作就相当于一个新的模型，并且该操作能够迫使网络学习更加鲁棒的特征。在AlexNet中，作者在前两层全连接层中使用了Dropout操作，**目前该操作已被更好用的Batch Normalization代替**。
 
-### 3. VGGNet(2014)[3]——越走越深
+### 3 VGGNet
 
-VGGNet是在2015年发表在ICLR上的一篇文章中提出的，网络深度提高到了16至19层，在ILSVRC-2014中，基于该网络的方案获得了Localisation任务的第一名和Classification任务的第二名(同年Classification任务第一名为Inception v1方案)。VGGNet出现前，网络最深也只在10层以内，此时的大多数工作是一方面是使用更小的卷积核和卷积步长，另一方面是使用更大的图像和多尺度对图像进行训练，本文中作者则从另一个角度研究CNN网络的特性–Depth。
+VGGNet[3]是在2015年发表在ICLR上的一篇文章中提出的，网络深度提高到了16至19层，在ILSVRC-2014中，基于该网络的方案获得了Localisation任务的第一名和Classification任务的第二名(同年Classification任务第一名为Inception v1方案)。VGGNet出现前，网络最深也只在10层以内，此时的大多数工作是一方面是使用更小的卷积核和卷积步长，另一方面是使用更大的图像和多尺度对图像进行训练，本文中作者则从另一个角度研究CNN网络的特性–Depth。
 
 <div align=center><img width=60% height=60% src="/image/2-5.jpg" alt="VGGNet网络架构"/></div>
 
@@ -131,9 +150,9 @@ VGGNet的闪光点是**卷积层使用更小的滤波器尺寸和间隔**。与A
   
   但 VGGNet 唯一存在的**不足是VGG耗费更多计算资源**，并且使用了更多的参数（这里不是3x3卷积的锅），导致更多的内存占用（140M）。其中绝大多数的参数都是来自于第一个全连接层，并且VGGNet有3个全连接层！巨大的参数空间导致训练一个VGG模型通常要花费更长的时间，所幸有公开的pretrained model让我们很方便的使用。
 
-### 4. NIN(2013)[4]——增强卷积模块功能
+### 4 NIN
 
-NIN(Network In Network)是NUS(National University of Singapore)于2014年发表在ICLR上的一篇文章中提出的，作者首先分析了传统的CNN网络的一些问题，并针对这些问题，提出了自己的改进方法，并将网络结构命名为NIN。在NIN的基础上，Google于2014年提出了GoogLeNet（Inception V1），并随后改进出Inception V3和V4。
+NIN(Network In Network)[4]是NUS(National University of Singapore)于2014年发表在ICLR上的一篇文章中提出的，作者首先分析了传统的CNN网络的一些问题，并针对这些问题，提出了自己的改进方法，并将网络结构命名为NIN。在NIN的基础上，Google于2014年提出了GoogLeNet（Inception V1），并随后改进出Inception V3和V4。
 
 作者分析传统的CNN网络存在的问题主要为以下两点：
   * **传统卷积模块非线性能力有限**：对传统的CNN网络，没有经过非线性激活函数之前的卷积操作，实际上只是一个线性操作，如果卷积结果为正，这样经过一个ReLU函数后没有影响，就相当于是一个线性卷积(对前一层receptive field的线性编码)。使用多层这样的线性卷积+ReLU模块虽然在一定程度上可以弥补网络线性抽象能力差的问题，但这样会给下一层网络带来较大的输入，网络的整体参数数量就会增加。
@@ -156,7 +175,7 @@ NIN(Network In Network)是NUS(National University of Singapore)于2014年发表�
 
 **Global Average Pooling**的优点如下：(1)不引入新的参数，避免了全连接层带来的参数数量增加和过拟合；(2)增加网络的可解释性，输出的每个通道对应于一个类别；(3)通过实验发现，全局均值池化还有正则化的作用。
 
-### 5. GoogLeNet and Inception(2014)[5]——大浪推手
+### 5 GoogLeNet
 
 Inception v1模型是由2015年发表在CVPR上的Going Deeper with Convolutions[5]文章中提出的，文章中首次提出了Inception结构，并把由该结构组成的网络称为GoogLeNet，该网络获得了ILSVRC-2014的Classification任务的冠军。GoogLeNet达到了22层，在当时应该是最深的网络，由于精心设计的网络结构，其参数数量只有AlexNet的8层网络的1/12，约为500w，并且要比AlexNet更为精确。GoogLeNet网络结构如下图所示：
 
@@ -188,9 +207,9 @@ GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练�
   
 由于网络层数较深，所以会带来梯度消失的问题。为了应对该问题，在训练阶段，作者为网络添加了辅助分类器，即使用网络中间某层的feature map进行分类，计算得到的loss以一定权重添加到总的loss中用于训练，在测试阶段则丢弃这些辅助分类器。GoogLeNet网络分别在inception(4a)和inception(4d)的顶部添加了辅助分类器，其loss按0.3的权重添加到总的loss中。 辅助分类器的结构参考论文。
 
-### 6. ResNet(2015)[6]——里程碑式创新
+### 6 ResNet
 
-ResNet v1是由Kaiming He于2016年发表在CVPR上的文章Deep Residual Learning中提出的，残差学习的方法有效地解决了随着网络深度增加而造成的性能退化的问题，在这篇文章中，最深的网络深度达到了152层。以该结构为基础的所构建的网络，赢得了ILSVRC-2015的Classilfication/Localization/Detection任务的冠军，同时赢得了COCO-2015的Detection/Segmentation任务的冠军，并且在COCO目标检测数据集上，获得了相对28%的提升。
+ResNet v1是由Kaiming He于2016年发表在CVPR上的文章Deep Residual Learning[6]中提出的，残差学习的方法有效地解决了随着网络深度增加而造成的性能退化的问题，在这篇文章中，最深的网络深度达到了152层。以该结构为基础的所构建的网络，赢得了ILSVRC-2015的Classilfication/Localization/Detection任务的冠军，同时赢得了COCO-2015的Detection/Segmentation任务的冠军，并且在COCO目标检测数据集上，获得了相对28%的提升。
 
 目前的研究已经表明，提高网络深度可以提高网络性能，但网络较深则会带来**梯度消失**和**梯度爆炸**的问题，目前该问题可以通过**Normalized Initialization**和**Batch Normalization**很好地解决。但通过实验发现，不断增加网络深度还会带来**网络退化**的问题，较深网络的训练和测试误差都比较浅层网络大，造成这一现象的不是过拟合，而是**网络退化**。作者对这一问题进行了分析，提出了残差网络的概念。
 
@@ -212,9 +231,9 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
 
 <div align=center><img width=80% height=80% src="/image/2-11-3.png" alt="ResNet不同层数时的网络配置"/></div>
 
-### 7. DenseNet(2017)[7]——既往开来
+### 7 DenseNet
 
-作为CVPR2017年的Best Paper, DenseNet脱离了加深网络层数(ResNet[6])和加宽网络结构(Inception[5])来提升网络性能的定式思维，从特征的角度考虑，通过特征重用和旁路(Bypass)设置，提出了一种稠密残差连接的模块，并据此构建出较深的网络结构，取得了不错的效果。如下图所示，为一个5层稠密残差连接模块的示意图，在图中，第一层X0为输入，其后各层为卷积后的特征图，并且特征图的数目都为4，即该稠密残差连接模块的增长率超参数 k = 4：
+作为CVPR2017年的Best Paper, DenseNet[7]脱离了加深网络层数(ResNet[6])和加宽网络结构(Inception[5])来提升网络性能的定式思维，从特征的角度考虑，通过特征重用和旁路(Bypass)设置，提出了一种稠密残差连接的模块，并据此构建出较深的网络结构，取得了不错的效果。如下图所示，为一个5层稠密残差连接模块的示意图，在图中，第一层X0为输入，其后各层为卷积后的特征图，并且特征图的数目都为4，即该稠密残差连接模块的增长率超参数 k = 4：
 
 <div align=center><img width=70% height=70% src="/image/2-12-1.png" alt="Dense模块结构图"/></div>
 
@@ -240,7 +259,7 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
   
   * **DenseNet-C**:作者同样在Transition Layer中进行改进，在该层中降低特征图channel的数量，若前一层Dense Block中的channel为m，则可以设置Dense Block间的转移层输出的channel个数为theta x m，0<theta<=1，这样可通过theta参数控制网络规模。论文中将使用该方法并且theta=0.5的DenseNet记为**DenseNet-C**，将综合了DenseNet-B和DenseNet-C的网络称为**DenseNet-BC**。
 
-### Reference
+### 8 Reference
 
 [1] Lécun Y, Bottou L, Bengio Y, et al. Gradient-based learning applied to document recognition[J]. Proceedings of the IEEE, 1998, 86(11):2278-2324.
 
@@ -255,3 +274,5 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
 [6] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition(CVPR). 2016: 770-778.
 
 [7] Huang G, Liu Z, Van Der Maaten L, et al. Densely connected convolutional networks[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition(CVPR). 2017: 4700-4708.
+
+## 2D Object Detection
