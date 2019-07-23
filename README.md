@@ -14,7 +14,17 @@
   * [7 DenseNet(2017)——既往开来](#7-densenet)
   * [8 Reference](#8-reference)
 * [2D Object Detection](#2d-object-detection)
-  
+  * [Two-Stage目标检测方法](#two-stage目标检测方法)
+    * [1 RCNN(2014)](#1-rcnn)
+    * [2 SPPNet(2014)](#2-sppnet)
+    * [3 Fast RCNN(2015)](#3-fast-rcnn)
+    * [4 Faster RCNN(2015)](#4-faster-rcnn)
+    * [5 Pyramid Networks(2017)](#5-pyramid-networks)
+  * [One-Stage目标检测方法](#one-stage目标检测方法)
+    * [1 YOLO(2016-2017-2018)](#1-yolo)
+    * [2 SSD(2016)](#2-ssd)
+    * [3 Retina-Net(2017)](#3-retina-net)
+  * [Reference](#reference)
 * [3D Object Detection](#3d-object-detection)
   * [1 基于视觉图像方法](#1-基于视觉图像方法)
   * [2 基于激光雷达点云方法](#2-基于激光雷达点云方法)
@@ -235,7 +245,7 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
   
 我们重点关注后两种基于深度学习的目标检测方法，其中上述第二种称为**Two-Stage目标检测方法**，即这类检测算法将检测问题划分为两个阶段，第一个阶段首先产生候选区域(Region Proposals)，其包含目标大概的位置信息，然后第二个阶段对候选区域进行分类和位置精修；上述第三种方法称为**One-Stage目标检测方法**，这类检测算法不需要Region Proposal阶段，可以通过一个Stage直接产生物体的类别概率和位置坐标值。目标检测模型的主要性能指标是**检测准确度**和**速度**，其中准确度主要考虑物体的定位以及分类准确度。一般情况下，Two-Stage算法在准确度上有优势，而One-Stage算法在速度上有优势。不过，随着研究的发展，两类算法都在两个方面做改进，均能在准确度以及速度上取得较好的结果。
 
-下图概括了目标检测的路线图，路线图将目标检测的进展划分为两个历史时期：1)传统目标检测期(2014年之前)；2)深度学习检测期(2014年之后)。
+下图概括了目标检测的路线图[1]，路线图将目标检测的进展划分为两个历史时期：1)传统目标检测期(2014年之前)；2)深度学习检测期(2014年之后)。
 
 <div align=center><img width=80% height=80% src="/image/3-1.png" alt="目标检测的路线图"/></div>
 
@@ -243,17 +253,23 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
 
 #### 1 RCNN
 
-#### 2 SppNet
+#### 2 SPPNet
 
 #### 3 Fast RCNN
 
 #### 4 Faster RCNN
+
+#### 5 Pyramid Networks
 
 ### One-Stage目标检测方法
 
 #### 1 YOLO
 
 #### 2 SSD
+
+#### 3 Retina-Net
+
+### Reference
 
 ****
 ## 3D Object Detection
