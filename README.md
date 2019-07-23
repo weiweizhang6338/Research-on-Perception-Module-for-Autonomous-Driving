@@ -253,6 +253,8 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
 
 #### 1 RCNN
 
+
+
 #### 2 SPPNet
 
 #### 3 Fast RCNN
@@ -270,6 +272,10 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
 #### 3 Retina-Net
 
 ### Reference
+
+[1] Zhengxia Zou, Zhenwei Shi, Yuhong Guo, and Jieping Ye. (May. 2019). “Object Detection in 20 Years: A Survey.” [Online]. Available: https://arxiv.org/abs/1905.05055
+
+[2] Girshick R, Donahue J, Darrell T, et al. Rich feature hierarchies for accurate object detection and semantic segmentation[C]//Proceedings of the IEEE conference on computer vision and pattern recognition. 2014: 580-587.
 
 ****
 ## 3D Object Detection
