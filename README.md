@@ -277,7 +277,7 @@ NIN(Network In Network)[4]是NUS(National University of Singapore)于2014年发�
 
 Inception v1模型是由2015年发表在CVPR上的Going Deeper with Convolutions[5]文章中提出的，文章中首次提出了Inception结构，并把由该结构组成的网络称为GoogLeNet，该网络获得了ILSVRC-2014的Classification任务的冠军。GoogLeNet达到了22层，在当时应该是最深的网络，由于精心设计的网络结构，其参数数量只有AlexNet的8层网络的1/12，约为500w，并且要比AlexNet更为精确。GoogLeNet网络结构如下图所示：
 
-<div align=center><img width=100% height=100% src="/image/2-9.png" alt="GoogLeNet网络架构"/></div>
+<div align=center><img width=70% height=70% src="/image/2-9.png" alt="GoogLeNet网络架构"/></div>
 
 作者提出了Inception module结构，它借鉴了NIN[4]的一些思想，网络结构相比于传统的CNN结构有很大改变。网络中大量使用1x1的卷积核，NIN中使用1x1卷积核的目的主要是提高网络的非线性能力，而这里作者用它的主要目的是进行降维，**将参数空间进行压缩，去除掉无用的稀疏数据，使参数空间更为稠密**，这样可减少参数数量，进而可增加网络的深度和宽度。
 
