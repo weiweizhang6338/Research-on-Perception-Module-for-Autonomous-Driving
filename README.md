@@ -130,6 +130,43 @@ AlexNet将LeNet扩展为更大的神经网络，可用于学习更复杂的对�
   * Overlapping Pooling：对传统的Pooling方法，通常是步长等于池化核大小，即对于同一池化核，池化过程中没有交差重叠。作者这里提出了Overlapping Pooling方法，步长小于池化核，使一次池化过程产生一定的重叠，作者通过实验觉得这对克服过拟合有一定的作用，不过**目前这种操作使用的较少**。
   - Data Augmentation：在Training阶段，作者主要使用了两种数据增强的方法，一种是对图像进行图像翻转、水平镜像和随机裁剪以增加训练数据，另一种是对图像像素使用PCA方法；**第一种方法好像目前用的比较多，第二种较少**；在Testing阶段，作者从一幅图像中裁剪出10个patches进行评估(四个角+中心，水平翻转后重复)，最终的结果是10个patches求均值；
   * Dropout：作者提出了Dropout方法(Dropout方法是Hinton于2012年在Improving neural Networks by preventing co-adaptation of feature detectors这篇文章中提出的，Alex是共同作者)，该方法来源于多模型联合的启发。作者提出，在训练时，以50%的概率将隐含层的神经元输出置零，每一次操作就相当于一个新的模型，并且该操作能够迫使网络学习更加鲁棒的特征。在AlexNet中，作者在前两层全连接层中使用了Dropout操作，**目前该操作已被更好用的Batch Normalization代替**。
+  
+torchvision.models模块的子模块中包含AlexNet网络模型，使用如下代码直接调用，源代码参见：[Alexnet](https://pytorch.org/docs/stable/_modules/torchvision/models/alexnet.html#alexnet "Alexnet")。
+
+```
+import torchvision
+model = torchvision.models.alexnet(pretrained=False)
+print(model)
+```
+输出结果为：
+```
+AlexNet(
+  (features): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(11, 11), stride=(4, 4), padding=(2, 2))
+    (1): ReLU(inplace)
+    (2): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (3): Conv2d(64, 192, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    (4): ReLU(inplace)
+    (5): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (6): Conv2d(192, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (7): ReLU(inplace)
+    (8): Conv2d(384, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (9): ReLU(inplace)
+    (10): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (11): ReLU(inplace)
+    (12): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (classifier): Sequential(
+    (0): Dropout(p=0.5)
+    (1): Linear(in_features=9216, out_features=4096, bias=True)
+    (2): ReLU(inplace)
+    (3): Dropout(p=0.5)
+    (4): Linear(in_features=4096, out_features=4096, bias=True)
+    (5): ReLU(inplace)
+    (6): Linear(in_features=4096, out_features=1000, bias=True)
+  )
+)
+```
 
 ### 3 VGGNet
 
