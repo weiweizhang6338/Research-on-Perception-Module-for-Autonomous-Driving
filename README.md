@@ -40,11 +40,11 @@
 
 下图直观显示了经典的CNN网络的性能对比，其中，纵轴表示在ImageNet图像分类上的Top-1正确率，横轴表示计算量，图中圆圈的大小与网络所需的计算量成正比：
 
-<div align=center><img width=90% height=90% src="/image/2-14.png" alt="经典CNN网络性能对比"/></div>
+<div align=center><img width=70% height=70% src="/image/2-14.png" alt="经典CNN网络性能对比"/></div>
 
 表2-1总结了经典CNN网络的贡献和其发展空间：
 
-<div align=center><img width=70% height=70% src="/image/2-13.png" alt="经典CNN网络贡献和发展空间"/></div>
+<div align=center><img width=90% height=90% src="/image/2-13.png" alt="经典CNN网络贡献和发展空间"/></div>
 
 ### 1 LeNet5
 
