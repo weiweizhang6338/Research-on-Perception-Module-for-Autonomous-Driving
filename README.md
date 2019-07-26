@@ -675,7 +675,7 @@ GoogLeNet(
 
 需要注意的是，CNN中一般使用Pooling操作来降低feature map的size，但是作者认为直接对feature map进行Pooling操作会遇到前面所述的表达瓶颈的问题。作者提出了一种新的方法来解决此问题，即同时进行步长为2的卷积核池化操作，再将其feature map进行联合，如下图所示，这也是作者在网络中采用的Pooling方案：
 
-<div align=center><img width=50% height=50% src="/image/2-10-7.png" alt="Pooling方案"/></div>
+<div align=center><img width=40% height=40% src="/image/2-10-7.png" alt="Pooling方案"/></div>
 
 torchvision.models模块的子模块中包含InceptionV3网络模型，使用如下代码直接调用，源代码参见：[InceptionV3](https://pytorch.org/docs/stable/_modules/torchvision/models/inception.html#inception_v3 "InceptionV3")
 
