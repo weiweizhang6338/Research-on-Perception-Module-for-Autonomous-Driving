@@ -111,7 +111,7 @@ AlexNet[2]是由2012年发表在NIPS上的一篇文章中提出的，由神经�
 
 <div align=center><img width=90% height=90% src="/image/2-2.png" alt="AlexNet网络架构"/></div>
 
-<div align=center><img width=70% height=70% src="/image/2-3.png" alt="AlexNet网络架构"/></div>
+<div align=center><img width=50% height=50% src="/image/2-3.png" alt="AlexNet网络架构"/></div>
 
 AlexNet网络一共包含8层，包括5个卷积层和3个全连接层，具体来说，输入尺寸为227x227x3，有5个卷积层，3个池化层，2个全连接层和1个输出层，输出1000个类别的概率。这里取其前两层进行详细说明。
 
