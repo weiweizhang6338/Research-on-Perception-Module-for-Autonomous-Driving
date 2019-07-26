@@ -170,9 +170,24 @@ GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练�
 
 **Inception v2**主要是运用**Batch Normalization**改进Inception。Batch Normalization出现后基本取代了局部响应归一化操作(LRN)，目前已经成为CNN网络的标准配置。BN操作通常用于卷积层和激活层之间，用于对各层的feature map进行归一化操作。BN的主要作用就是加速网络训练和防止梯度消失。
 
-**Inception v3**中作者给出了一种分解较大卷积核的方法，可降低参数数量。如下图所示，对一个5x5的卷积核的卷积结果，可看做是由连续两层的3x3的卷积核卷积得到的：
+**Inception v3**中作者给出了一种分解Inception结构中较大卷积核的方法，可降低参数数量。有两种分解方法：
+
+  * 分解为对称的小卷积核；
+  - 分解为不对称的卷积核；
+
+第一种方法和VGG的思想很像，如下图所示，对左图Inception V1中的1个5x5的卷积核替换成右图的2个3x3的卷积核:
 
 <div align=center><img width=80% height=80% src="/image/2-10-4.png" alt="InceptionV3(A)"/></div>
+
+第二种方法就是将nxn的卷积核替换成 1xn 和 nx1 的卷积核堆叠。有两种堆叠方法：一种是沿深度方向的堆叠，如下图的左图所示；另一种是沿宽度方向堆叠，如下图的右图所示。第二种方法在大维度的特征图上表现不好，在特征图维度为12-20上表现好。
+
+<div align=center><img width=80% height=80% src="/image/2-10-5.png" alt="InceptionV3(B&C)"/></div>
+
+前面三个原则用来构建三种不同类型的 Inception 模块（这里我们按引入顺序称之为模块 A、B、C，这里使用「A、B、C」作为名称只是为了清晰期间，并不是它们的正式名称）。架构如下所示：
+
+<div align=center><img width=80% height=80% src="/image/2-10-6jpg" alt="ncIeptionV3网络架构"/></div>
+
+这里，「figure 5」是模块 A，「figure 6」是模块 B，「figure 7」是模块 C。
 
 ### 6 ResNet
 
