@@ -677,6 +677,10 @@ GoogLeNet(
 
 <div align=center><img width=40% height=40% src="/image/2-10-7.png" alt="Pooling方案"/></div>
 
+同Inception V1一样，Inception V3中也使用辅助分类器，即除了主分类器之外，还在网络结构中的某一层，论文中为17x17x768那一层，添加了一个分支用来做辅助分类，具体结构如下图所示：
+
+<div align=center><img width=50% height=50% src="/image/2-10-8.png" alt="辅助分类器"/></div>
+
 torchvision.models模块的子模块中包含InceptionV3网络模型，使用如下代码直接调用，源代码参见：[InceptionV3](https://pytorch.org/docs/stable/_modules/torchvision/models/inception.html#inception_v3 "InceptionV3")
 
 ```
