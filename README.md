@@ -650,7 +650,7 @@ GoogLeNet(
 )
 ```
 
-**Inception v2** 和 **Inception v3** 来自同一篇论文[8]，作者积极探索扩展网络的方法，旨在通过适当的分解卷积与积极的正则化尽可能高效地利用添加的计算。
+**Inception v2** 和 **Inception v3** 来自同一篇论文[8]，作者积极探索扩展网络的方法，旨在通过适当的分解卷积与积极的正则化尽可能高效地计算。
 
 **Inception v2**主要是运用**Batch Normalization**改进Inception。Batch Normalization出现后基本取代了局部响应归一化操作(LRN)，目前已经成为CNN网络的标准配置。BN操作通常用于卷积层和激活层之间，用于对各层的feature map进行归一化操作。BN的主要作用就是加速网络训练和防止梯度消失。
 
