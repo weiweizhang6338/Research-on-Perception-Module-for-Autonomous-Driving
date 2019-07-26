@@ -131,7 +131,7 @@ AlexNet将LeNet扩展为更大的神经网络，可用于学习更复杂的对�
   - Data Augmentation：在Training阶段，作者主要使用了两种数据增强的方法，一种是对图像进行图像翻转、水平镜像和随机裁剪以增加训练数据，另一种是对图像像素使用PCA方法；**第一种方法好像目前用的比较多，第二种较少**；在Testing阶段，作者从一幅图像中裁剪出10个patches进行评估(四个角+中心，水平翻转后重复)，最终的结果是10个patches求均值；
   * Dropout：作者提出了Dropout方法(Dropout方法是Hinton于2012年在Improving neural Networks by preventing co-adaptation of feature detectors这篇文章中提出的，Alex是共同作者)，该方法来源于多模型联合的启发。作者提出，在训练时，以50%的概率将隐含层的神经元输出置零，每一次操作就相当于一个新的模型，并且该操作能够迫使网络学习更加鲁棒的特征。在AlexNet中，作者在前两层全连接层中使用了Dropout操作，**目前该操作已被更好用的Batch Normalization代替**。
   
-torchvision.models模块的子模块中包含AlexNet网络模型，使用如下代码直接调用，源代码参见：[Alexnet](https://pytorch.org/docs/stable/_modules/torchvision/models/alexnet.html#alexnet "Alexnet")。
+torchvision.models模块的子模块中包含AlexNet网络模型，使用如下代码直接调用，源代码参见：[Alexnet](https://pytorch.org/docs/stable/_modules/torchvision/models/alexnet.html#alexnet "Alexnet")
 
 ```
 import torchvision
@@ -193,7 +193,7 @@ VGGNet的闪光点是**卷积层使用更小的滤波器尺寸和间隔**。与A
   
   但 VGGNet 唯一存在的**不足是VGG耗费更多计算资源**，并且使用了更多的参数（这里不是3x3卷积的锅），导致更多的内存占用（140M）。其中绝大多数的参数都是来自于第一个全连接层，并且VGGNet有3个全连接层！巨大的参数空间导致训练一个VGG模型通常要花费更长的时间，所幸有公开的pretrained model让我们很方便的使用。
   
-torchvision.models模块的子模块中包含VGG网络模型，具体涵盖了VGG11,VGG13,VGG16,VGG19，这里使用如下代码调用常用的VGG16，源代码参见：[VGG](https://pytorch.org/docs/stable/_modules/torchvision/models/vgg.html#vgg16 "VGG16")。
+torchvision.models模块的子模块中包含VGG网络模型，具体涵盖了VGG11,VGG13,VGG16,VGG19，这里使用如下代码调用常用的VGG16，源代码参见：[VGG](https://pytorch.org/docs/stable/_modules/torchvision/models/vgg.html#vgg16 "VGG16")
 
 ```
 import torchvision
@@ -304,6 +304,18 @@ GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练�
   * 网络在inference时的计算量约为1.5 billion multiply-adds；
   
 由于网络层数较深，所以会带来梯度消失的问题。为了应对该问题，在训练阶段，作者为网络添加了辅助分类器，即使用网络中间某层的feature map进行分类，计算得到的loss以一定权重添加到总的loss中用于训练，在测试阶段则丢弃这些辅助分类器。GoogLeNet网络分别在inception(4a)和inception(4d)的顶部添加了辅助分类器，其loss按0.3的权重添加到总的loss中。 辅助分类器的结构参考论文。
+
+torchvision.models模块的子模块中包含GoogLeNet网络模型，使用如下代码直接调用，源代码参见：[GoogLeNet](https://pytorch.org/docs/stable/_modules/torchvision/models/googlenet.html#googlenet "GoogLeNet")
+
+```
+import torchvision
+model = torchvision.models.googlenet(pretrained=False)
+print(model)
+```
+输出结果为：
+```
+
+```
 
 **Inception v2** 和 **Inception v3** 来自同一篇论文[8]，作者积极探索扩展网络的方法，旨在通过适当的分解卷积与积极的正则化尽可能高效地利用添加的计算。
 
