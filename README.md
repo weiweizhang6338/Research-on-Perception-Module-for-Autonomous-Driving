@@ -193,7 +193,7 @@ VGGNet的闪光点是**卷积层使用更小的滤波器尺寸和间隔**。与A
   
   但 VGGNet 唯一存在的**不足是VGG耗费更多计算资源**，并且使用了更多的参数（这里不是3x3卷积的锅），导致更多的内存占用（140M）。其中绝大多数的参数都是来自于第一个全连接层，并且VGGNet有3个全连接层！巨大的参数空间导致训练一个VGG模型通常要花费更长的时间，所幸有公开的pretrained model让我们很方便的使用。
   
-torchvision.models模块的子模块中包含VGG网络模型，包含了VGG11,VGG13,VGG16,VGG19，这里使用如下代码调用常用的VGG16，源代码参见：[VGG](https://pytorch.org/docs/stable/_modules/torchvision/models/vgg.html#vgg16 "VGG16")。
+torchvision.models模块的子模块中包含VGG网络模型，具体涵盖了VGG11,VGG13,VGG16,VGG19，这里使用如下代码调用常用的VGG16，源代码参见：[VGG](https://pytorch.org/docs/stable/_modules/torchvision/models/vgg.html#vgg16 "VGG16")。
 
 ```
 import torchvision
