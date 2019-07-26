@@ -185,7 +185,7 @@ GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练�
 
 前面三个原则用来构建三种不同类型的 Inception 模块（这里我们按引入顺序称之为模块 A、B、C，这里使用「A、B、C」作为名称只是为了清晰期间，并不是它们的正式名称）。架构如下所示：
 
-<div align=center><img width=60% height=60% src="/image/2-10-6.png" alt="ncIeptionV3网络架构"/></div>
+<div align=center><img width=50% height=50% src="/image/2-10-6.png" alt="ncIeptionV3网络架构"/></div>
 
 这里，「figure 5」是模块 A，「figure 6」是模块 B，「figure 7」是模块 C。
 
