@@ -44,7 +44,7 @@
 
 表2-1总结了经典CNN网络的贡献和其发展空间：
 
-<div align=center><img width=90% height=90% src="/image/2-13.png" alt="经典CNN网络贡献和发展空间"/></div>
+<div align=center><img width=70% height=70% src="/image/2-13.png" alt="经典CNN网络贡献和发展空间"/></div>
 
 ### 1 LeNet5
 
