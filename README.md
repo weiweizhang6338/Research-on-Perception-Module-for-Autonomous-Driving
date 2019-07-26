@@ -181,11 +181,11 @@ GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练�
 
 第二种方法就是将nxn的卷积核替换成 1xn 和 nx1 的卷积核堆叠。有两种堆叠方法：一种是沿深度方向的堆叠，如下图的左图所示；另一种是沿宽度方向堆叠，如下图的右图所示。第二种方法在大维度的特征图上表现不好，在特征图维度为12-20上表现好。
 
-<div align=center><img width=80% height=80% src="/image/2-10-5.png" alt="InceptionV3(B&C)"/></div>
+<div align=center><img width=70% height=70% src="/image/2-10-5.png" alt="InceptionV3(B&C)"/></div>
 
 前面三个原则用来构建三种不同类型的 Inception 模块（这里我们按引入顺序称之为模块 A、B、C，这里使用「A、B、C」作为名称只是为了清晰期间，并不是它们的正式名称）。架构如下所示：
 
-<div align=center><img width=80% height=80% src="/image/2-10-6.jpg" alt="ncIeptionV3网络架构"/></div>
+<div align=center><img width=80% height=80% src="/image/2-10-6.png" alt="ncIeptionV3网络架构"/></div>
 
 这里，「figure 5」是模块 A，「figure 6」是模块 B，「figure 7」是模块 C。
 
