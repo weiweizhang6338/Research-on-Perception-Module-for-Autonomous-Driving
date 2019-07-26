@@ -146,7 +146,7 @@ Inception v1模型是由2015年发表在CVPR上的Going Deeper with Convolutions
 
 <div align=center><img width=60% height=60% src="/image/2-10-1.png" alt="Inception module原始版本"/></div>
 
-但是这里有一个问题：在较高层时，channel数目较多，5x5卷积操作所带来的计算量非常大，特别是叠加pooling操作后(pooling操作channel数量不变)，channel数量会变得非常多。这里作者提出了第二个版本的Inception结构，引入了1x1的卷积核进行降维。 使用1x1卷积核进行降维源于embeddings的成功：即使是低维嵌入空间也可能包含大量的大块图像的信息。这里又有一个问题：低维嵌入空间所表达的特征是稠密的、经过压缩过的，一般难以处理，应该要保持特征表达的稀疏性以便于处理。所以作者又提出的如下的结构，在对输入的feature map进行卷积操作前，先使用1x1的卷积对特征进行压缩，之后的卷积操作相当于又将稠密的特征稀疏化。而在pooling操作时，则是后进行1x1卷积操作，以减少channel数量。
+但是这里有一个问题：在较高层时，channel数目较多，5x5卷积操作所带来的计算量非常大，特别是叠加pooling操作后(pooling操作channel数量不变)，channel数量会变得非常多。这里作者提出了第二个版本的Inception结构，在对输入的feature map进行卷积操作前，先使用1x1的卷积对特征进行压缩，之后的卷积操作相当于又将稠密的特征稀疏化。而在pooling操作时，则是后进行1x1卷积操作，以减少channel数量。
 
 <div align=center><img width=65% height=65% src="/image/2-10-2.png" alt="Inception module原始版本"/></div>
 
@@ -165,6 +165,12 @@ GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练�
   * 网络在inference时的计算量约为1.5 billion multiply-adds；
   
 由于网络层数较深，所以会带来梯度消失的问题。为了应对该问题，在训练阶段，作者为网络添加了辅助分类器，即使用网络中间某层的feature map进行分类，计算得到的loss以一定权重添加到总的loss中用于训练，在测试阶段则丢弃这些辅助分类器。GoogLeNet网络分别在inception(4a)和inception(4d)的顶部添加了辅助分类器，其loss按0.3的权重添加到总的loss中。 辅助分类器的结构参考论文。
+
+Inception v2 和 Inception v3 来自同一篇论文[8]，作者积极探索扩展网络的方法，旨在通过适当的分解卷积与积极的正则化尽可能高效地利用添加的计算。
+
+Inception v2主要是运用**Batch Normalization**改进Inception。Batch Normalization出现后基本取代了局部响应归一化操作(LRN)，目前已经成为CNN网络的标准配置。BN操作通常用于卷积层和激活层之间，用于对各层的feature map进行归一化操作。BN的主要作用就是加速网络训练和防止梯度消失。
+
+Inception v3中作者给出了一种分解较大卷积核的方法，可降低参数数量。如下图所示，对一个5x5的卷积核的卷积结果，可看做是由连续两层的3x3的卷积核卷积得到的：
 
 ### 6 ResNet
 
@@ -233,6 +239,8 @@ ResNet有不同的网络层数，比较常用的是50-layer，101-layer，152-la
 [6] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition(CVPR). 2016: 770-778.
 
 [7] Huang G, Liu Z, Van Der Maaten L, et al. Densely connected convolutional networks[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition(CVPR). 2017: 4700-4708.
+
+[8] Szegedy C, Vanhoucke V, Ioffe S, et al. Rethinking the inception architecture for computer vision[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition(CVPR). 2016: 2818-2826.
 
 ****
 ## 2D Object Detection
