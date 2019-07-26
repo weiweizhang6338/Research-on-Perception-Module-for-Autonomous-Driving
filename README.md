@@ -166,11 +166,13 @@ GoogLeNet便是应用上述Inception结构所构成的网络，只算有训练�
   
 由于网络层数较深，所以会带来梯度消失的问题。为了应对该问题，在训练阶段，作者为网络添加了辅助分类器，即使用网络中间某层的feature map进行分类，计算得到的loss以一定权重添加到总的loss中用于训练，在测试阶段则丢弃这些辅助分类器。GoogLeNet网络分别在inception(4a)和inception(4d)的顶部添加了辅助分类器，其loss按0.3的权重添加到总的loss中。 辅助分类器的结构参考论文。
 
-Inception v2 和 Inception v3 来自同一篇论文[8]，作者积极探索扩展网络的方法，旨在通过适当的分解卷积与积极的正则化尽可能高效地利用添加的计算。
+**Inception v2** 和 **Inception v3** 来自同一篇论文[8]，作者积极探索扩展网络的方法，旨在通过适当的分解卷积与积极的正则化尽可能高效地利用添加的计算。
 
-Inception v2主要是运用**Batch Normalization**改进Inception。Batch Normalization出现后基本取代了局部响应归一化操作(LRN)，目前已经成为CNN网络的标准配置。BN操作通常用于卷积层和激活层之间，用于对各层的feature map进行归一化操作。BN的主要作用就是加速网络训练和防止梯度消失。
+**Inception v2**主要是运用**Batch Normalization**改进Inception。Batch Normalization出现后基本取代了局部响应归一化操作(LRN)，目前已经成为CNN网络的标准配置。BN操作通常用于卷积层和激活层之间，用于对各层的feature map进行归一化操作。BN的主要作用就是加速网络训练和防止梯度消失。
 
-Inception v3中作者给出了一种分解较大卷积核的方法，可降低参数数量。如下图所示，对一个5x5的卷积核的卷积结果，可看做是由连续两层的3x3的卷积核卷积得到的：
+**Inception v3**中作者给出了一种分解较大卷积核的方法，可降低参数数量。如下图所示，对一个5x5的卷积核的卷积结果，可看做是由连续两层的3x3的卷积核卷积得到的：
+
+<div align=center><img width=80% height=80% src="/image/2-10-4.png" alt="InceptionV3(A)"/></div>
 
 ### 6 ResNet
 
