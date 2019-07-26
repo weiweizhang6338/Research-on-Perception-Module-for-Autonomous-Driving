@@ -673,7 +673,7 @@ GoogLeNet(
 
 这里，「figure 5」是模块 A，「figure 6」是模块 B，「figure 7」是模块 C。
 
-torchvision.models模块的子模块中包含InceptionV3网络模型，使用如下代码直接调用，源代码参见：[InceptionV3](https://pytorch.org/docs/stable/_modules/torchvision/models/googlenet.html#googlenet "GoogLeNet")
+torchvision.models模块的子模块中包含InceptionV3网络模型，使用如下代码直接调用，源代码参见：[InceptionV3](https://pytorch.org/docs/stable/_modules/torchvision/models/inception.html#inception_v3 "InceptionV3")
 
 ```
 import torchvision
