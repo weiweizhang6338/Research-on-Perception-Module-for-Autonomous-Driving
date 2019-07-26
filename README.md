@@ -669,9 +669,13 @@ GoogLeNet(
 
 前面三个原则用来构建三种不同类型的 Inception 模块（这里我们按引入顺序称之为模块 A、B、C，这里使用「A、B、C」作为名称只是为了清晰期间，并不是它们的正式名称）。架构如下所示：
 
-<div align=center><img width=50% height=50% src="/image/2-10-6.png" alt="ncIeptionV3网络架构"/></div>
+<div align=center><img width=50% height=50% src="/image/2-10-6.png" alt="InceptionV3网络架构"/></div>
 
 这里，「figure 5」是模块 A，「figure 6」是模块 B，「figure 7」是模块 C。
+
+需要注意的是，CNN中一般使用Pooling操作来降低feature map的size，但是作者认为直接对feature map进行Pooling操作会遇到前面所述的表达瓶颈的问题。作者提出了一种新的方法来解决此问题，即同时进行步长为2的卷积核池化操作，再将其feature map进行联合，如下图所示，这也是作者在网络中采用的Pooling方案：
+
+<div align=center><img width=50% height=50% src="/image/2-10-7.png" alt="Pooling方案"/></div>
 
 torchvision.models模块的子模块中包含InceptionV3网络模型，使用如下代码直接调用，源代码参见：[InceptionV3](https://pytorch.org/docs/stable/_modules/torchvision/models/inception.html#inception_v3 "InceptionV3")
 
